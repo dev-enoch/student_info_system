@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Student Information System{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="navbar">
+      <div class="logo">
+        <h1>Student Information System</h1>
+      </div>
+      <nav class="nav-links">
+        {% if current_user.is_authenticated %}
+        <a href="{{ url_for('logout') }}">Logout</a>
+        {% endif %}
+      </nav>
+    </header>
+
+    <!-- Flash Messages -->
+    {% with messages = get_flashed_messages() %} {% if messages %}
+    <div class="flash-messages">
+      <ul>
+        {% for message in messages %}
+        <li>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %} {% endwith %}
+
+    <!-- Main Content -->
+    <main class="content">{% block content %}{% endblock %}</main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; {{ current_year }} Student Information System</p>
+    </footer>
+  </body>
+</html>
