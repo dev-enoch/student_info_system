@@ -64,7 +64,7 @@ The project was developed with the following approach:
 1. **Clone or Create the Project**:
    - If using Git, clone the repository:
      ```bash
-     git clone <repository-url>
+     git clone https://github.com/dev-enoch/student_info_system.git
      cd student_info_system
      ```
    - Alternatively, create a directory named `student_info_system` and add the project files as listed above.
